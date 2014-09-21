@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shiraki_hirotomo.metropush" >
 
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="19"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -18,7 +23,16 @@
         </activity>
         <activity
             android:name=".SettingActivity"
-            android:label="@string/title_activity_setting" >
+            android:label="@string/title_activity_setting"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="twitter"
+                    android:scheme="metropush" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".EditActivity"

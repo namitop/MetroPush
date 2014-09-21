@@ -41,12 +41,69 @@
             android:layout_height="wrap_content"
             android:text="まで"
             android:layout_weight="0"/>
-
     </LinearLayout>
-
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="通知設定"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="出発駅周辺で通知"/>
+        <ToggleButton
+            android:id="@+id/togglebuttondeparture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="Off"
+            android:textOn="On"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="到着駅周辺で通知"/>
+        <ToggleButton
+            android:id="@+id/togglebuttonarrival"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="Off"
+            android:textOn="On"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="各駅で通知"/>
+        <ToggleButton
+            android:id="@+id/togglebuttoneverystops"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="Off"
+            android:textOn="On"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="完了" />
+
 </LinearLayout>
