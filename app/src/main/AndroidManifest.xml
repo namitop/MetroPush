@@ -6,6 +6,11 @@
         android:minSdkVersion="15"
         android:targetSdkVersion="19"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--GPSによる位置情報取得-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--ネットワークによる位置情報取得-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <application
         android:allowBackup="true"
@@ -38,6 +43,15 @@
             android:name=".EditActivity"
             android:label="@string/title_activity_edit" >
         </activity>
+
+        <activity android:name=".ProximityAlertActivity"
+            android:label="ProximityAlertActivity">
+            <intent-filter>
+                <action android:name="jp.co.ichi.action.ALERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
+
 
 </manifest>

@@ -19,6 +19,14 @@ public class SettingUtils {
     private static final String TWITTER_SCREEN_NAME = "twitter_screen_name";
     private static final String TWITTER_TO_NAME = "twitter_to_name";
     private static final String TWITTER_MESSAGE = "twitter_message";
+    private static final String EDIT_DEPARTURE = "edit_departure";
+    private static final String EDIT_ARRIVAL = "edit_arrival";
+    private static final String DEPARTURE_NAME = "departure_name";
+    private static final String DEPARTURE_LONGITUDE = "departure_longitude";
+    private static final String DEPARTURE_LATITUDE = "departure_latitude";
+    private static final String ARRIVAL_NAME = "arrival_name";
+    private static final String ARRIVAL_LONGITUDE = "arrival_longitude";
+    private static final String ARRIVAL_LATITUDE = "arrival_latitude";
 
 
 //    public static void storeContactIsEnable(Context context, boolean isChecked){
@@ -136,5 +144,145 @@ public class SettingUtils {
         }else{
             return "メッセージ未設定";
         }
+    }
+
+
+
+    public static void storeDeparture(Context context, String s){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putString(EDIT_DEPARTURE, s);//twitterのuserのscreennameをとりたい
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static String loadDeparture(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String departure = preferences.getString(EDIT_DEPARTURE, null);
+        return departure;
+    }
+
+    public static boolean hasDeparture(Context context){
+        return loadDeparture(context) != null;
+    }
+
+    public static void storeArrival(Context context, String s){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(EDIT_ARRIVAL, s);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static String loadArrival(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String arrival = preferences.getString(EDIT_ARRIVAL, null);
+        return arrival;
+    }
+
+    public static boolean hasArrival(Context context){
+        return loadDeparture(context) != null;
+    }
+
+
+    //注意！storeDeparture・storeArrivalと違い、storeDepartureName・storeArrivalNameはEdit
+    public static void storeDepartureName(Context context, String s){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(DEPARTURE_NAME, s);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static String loadDepartureName(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String departure_name = preferences.getString(DEPARTURE_NAME, null);
+        return departure_name;
+    }
+
+    public static void storeDepartureLongitude(Context context, double d){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putFloat(DEPARTURE_LONGITUDE, (float)d);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    //一度floatにされたのがdoubleで返される。
+    public static double loadDepartureLongitude(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        double departure_longitude = preferences.getFloat(DEPARTURE_LONGITUDE, 0);
+        return departure_longitude;
+    }
+    public static void storeDepartureLatitude(Context context, double d){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putFloat(DEPARTURE_LATITUDE, (float)d);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static double loadDepartureLatitude(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        double departure_latitude = preferences.getFloat(DEPARTURE_LATITUDE, 0);
+        return departure_latitude;
+    }
+
+    public static void storeArrivalName(Context context, String s){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(ARRIVAL_NAME, s);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static String loadArrivalName(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        String arrival_name = preferences.getString(ARRIVAL_NAME, null);
+        return arrival_name;
+    }
+
+    public static void storeArrivalLongitude(Context context, double d){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putFloat(ARRIVAL_LONGITUDE, (float)d);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static double loadArrivalLongitude(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        double arrival_longitude = preferences.getFloat(ARRIVAL_LONGITUDE, 0);
+        return arrival_longitude;
+    }
+    public static void storeArrivalLatitude(Context context, double d){
+        // コンテキストからPREF_NAMEをキーにSharedPreferenceのインスタンスを取得している
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME,
+                Context.MODE_PRIVATE);
+        // Editorのインスタンスを取得
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putFloat(ARRIVAL_LATITUDE, (float)d);//edittextを入れる
+        //editorの変更をコミットする。
+        editor.commit();
+    }
+    public static double loadArrivalLatitude(Context context){
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        double arrival_latitude = preferences.getFloat(ARRIVAL_LATITUDE, 0);
+        return arrival_latitude;
     }
 }

@@ -94,7 +94,7 @@ public class SettingActivity extends Activity implements OnCheckedChangeListener
 
         //完了ボタン
         //buttonインスタンスを取得
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.buttonsetting);
         // ボタンがクリックされた時に呼び出されるコールバックリスナーを登録します
         button.setOnClickListener(SettingActivity.this);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -127,8 +127,20 @@ public class SettingActivity extends Activity implements OnCheckedChangeListener
         tBtnEveryStops.setChecked(SettingUtils.loadToggleIsChecked(this, R.id.togglebuttoneverystops));
 
         textViewFrom.setText(SettingUtils.loadTwitterUser(this));
-        editTextTo.setText(SettingUtils.loadTwitterToName(this));
-        editTextMessage.setText(SettingUtils.loadTwitterMessage(this));
+
+
+
+        if(SettingUtils.hasDeparture(this)){
+            editTextTo.setText(SettingUtils.loadTwitterToName(this));
+        }else{
+            editTextTo.setHint("宛先未設定(twitterの@からはじまるユーザーIDを記入してください)");
+        }
+
+        if(SettingUtils.hasDeparture(this)){
+            editTextMessage.setText(SettingUtils.loadTwitterMessage(this));
+        }else{
+            editTextMessage.setHint("メッセージを書いてください。メッセージの文末に(@〜〜駅)とつけて、送られます。");
+        }
     }
 
 
@@ -140,6 +152,7 @@ public class SettingActivity extends Activity implements OnCheckedChangeListener
             Toast.makeText(this, "UnChecked!", Toast.LENGTH_SHORT).show();
         }
         SettingUtils.storeToggleIsChecked(this, buttonView.getId(), isChecked);
+//SettingUtilsのほうでまとめた
 //        if(buttonView.getId()==R.id.togglebuttoncontactisenable){
 //            if(isChecked){
 //                SettingUtils.storeContactIsEnable(this, isChecked);

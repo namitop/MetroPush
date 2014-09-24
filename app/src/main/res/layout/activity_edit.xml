@@ -18,12 +18,14 @@
             android:id="@+id/editDeparture"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:hint="出発駅"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="から"
-            android:layout_weight="0"/>
+            android:layout_weight="0"
+            android:hint="到着駅"/>
     </LinearLayout>
 
     <LinearLayout
@@ -101,7 +103,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonedit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="完了" />
