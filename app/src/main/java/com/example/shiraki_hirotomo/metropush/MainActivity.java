@@ -121,9 +121,10 @@ public class MainActivity extends Activity implements LocationListener, LoaderCa
         Log.d("now緯度経度の中身(onCreate)",nowLongitude+":"+nowLatitude);
         Log.d("リクエスト内容(onCreate)","http://express.heartrails.com/api/json?method=getStations&x="+nowLongitude+"&y="+nowLatitude);
         bundle.putString("url", "http://express.heartrails.com/api/json?method=getStations&x="+nowLongitude+"&y="+nowLatitude);
-
         // LoaderManagerの初期化（3）
         //getLoaderManager().initLoader(0, bundle, this);//このinitloader必要ないかもしれない
+
+        //Button test_button_tweet = new Button();
     }
 
     protected void onResume(){
